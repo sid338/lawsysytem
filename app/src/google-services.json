@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "160076019533",
+    "project_id": "lawsystem-49e23",
+    "storage_bucket": "lawsystem-49e23.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:160076019533:android:9f4311e4a87a0f59ca6904",
+        "android_client_info": {
+          "package_name": "com.example.lawsystem"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "160076019533-a8hi53l2a4q143v71uvlm54rsdvfn118.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCmm-Tr0vEeJxLxtZoeoja9Fcbwq4JTOwk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "160076019533-a8hi53l2a4q143v71uvlm54rsdvfn118.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:160076019533:android:f62e4257c7af9da8ca6904",
+        "android_client_info": {
+          "package_name": "com.example.splash1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "160076019533-a8hi53l2a4q143v71uvlm54rsdvfn118.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCmm-Tr0vEeJxLxtZoeoja9Fcbwq4JTOwk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "160076019533-a8hi53l2a4q143v71uvlm54rsdvfn118.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
