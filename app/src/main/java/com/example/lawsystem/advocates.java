@@ -2,72 +2,38 @@ package com.example.lawsystem;
 
 public class advocates {
 
-    private int id;
+    private String Name,ContactNo,Email_Id;
 
-    private String name;
-
-    private String experiance;
-
-    private double rating;
-
-    private double fee;
-
-    private int image;
-
-    public advocates(int id, String name, String experiance, double rating, double fee, int image) {
-        this.id = id;
-        this.name = name;
-        this.experiance = experiance;
-        this.rating = rating;
-        this.fee = fee;
-        this.image = image;
+    public advocates() {
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
+    public advocates(String name, String contactNo, String email_Id) {
+        Name = name;
+        ContactNo = contactNo;
+        Email_Id = email_Id;
     }
 
     public String getName() {
-        return name;
+        return Name;
     }
 
     public void setName(String name) {
-        this.name = name;
+        Name = name;
     }
 
-    public String getExperiance() {
-        return experiance;
+    public String getContactNo() {
+        return ContactNo;
     }
 
-    public void setExperiance(String experiance) {
-        this.experiance = experiance;
+    public void setContactNo(String contactNo) {
+        ContactNo = contactNo;
     }
 
-    public double getRating() {
-        return rating;
+    public String getEmail_Id() {
+        return Email_Id;
     }
 
-    public void setRating(double rating) {
-        this.rating = rating;
-    }
-
-    public double getFee() {
-        return fee;
-    }
-
-    public void setFee(double fee) {
-        this.fee = fee;
-    }
-
-    public int getImage() {
-        return image;
-    }
-
-    public void setImage(int image) {
-        this.image = image;
+    public void setEmail_Id(String email_Id) {
+        Email_Id = email_Id;
     }
 }

@@ -1,19 +1,32 @@
 package com.example.lawsystem;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
+import android.widget.SearchView;
+import android.widget.Toast;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-import java.util.List;
+
 
 public class recyc extends AppCompatActivity {
 
-    List<advocates> Advocatelist;
-
+    ArrayList<advocates> Advocatelist;
+    DatabaseReference databaseReference;
+    SearchView searchView;
     RecyclerView recyclerView;
+    AdvocateAdapter myAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,57 +34,68 @@ public class recyc extends AppCompatActivity {
         setContentView(R.layout.activity_recyc);
 
         recyclerView=(RecyclerView) findViewById(R.id.recyclerview);
-       // recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+        SharedPreferences sh= getSharedPreferences("MySharedPreferences1", MODE_PRIVATE);
+        String s1=sh.getString("Username","");
+        recyclerView=findViewById(R.id.recyclerview);
+        searchView= findViewById(R.id.searchview_Adv);
+        databaseReference= FirebaseDatabase.getInstance().getReferenceFromUrl("https://lawsystem-49e23-default-rtdb.firebaseio.com/");
+
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         Advocatelist=new ArrayList<>();
+        myAdapter =new AdvocateAdapter(this,Advocatelist);
+        recyclerView.setAdapter(myAdapter);
+        databaseReference.child("request").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                Advocatelist.clear();
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                    advocates mechanic = dataSnapshot.getValue(advocates.class);
+                    Advocatelist.add(mechanic);
+                }
+                myAdapter.notifyDataSetChanged();
+            }
 
-        Advocatelist.add(
-                new advocates(
-                        1,
-                        "Hithesh K Bimal",
-                        "7 years",
-                        4.3,
-                        5000,
-                        R.drawable.hkb));
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(getApplicationContext(),"Error loading data"+error.getMessage(),Toast.LENGTH_SHORT).show();
+            }
+        });
 
-        Advocatelist.add(
-                new advocates(
-                        1,
-                        "Navin Ross K",
-                        "5 years",
-                        4,
-                        6000,
-                        R.drawable.sen));
+        //  SEARCH
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
 
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                // creating a new array list to filter our data.
+                ArrayList<advocates> filteredlist = new ArrayList<>();
 
-        Advocatelist.add(
-                new advocates(
-                        1,
-                        "Sruthish joseph",
-                        "4.5 years",
-                        4.5,
-                        5500,
-                        R.drawable.sru));
-
-
-        Advocatelist.add(
-                new advocates(
-                        1,
-                        "Devdars KJ",
-                        "5 years",
-                        4.5,
-                        7000,
-                        R.drawable.dev));
-
-
-
-
-
-       /* advocateAdapter adapter=new advocateAdapter(this,Advocatelist);
-        recyclerView.setAdapter(adapter);*/
-
-        HomeRecyclerViewAdapter homeRecyclerViewAdapter=new HomeRecyclerViewAdapter(this,Advocatelist);
-    recyclerView.setAdapter(homeRecyclerViewAdapter);
+                // running a for loop to compare elements.
+                for (advocates item : Advocatelist) {
+                    // checking if the entered string matched with any item of our recycler view.
+                    if (item.getName().toLowerCase().contains(newText.toLowerCase())) {
+                        // if the item is matched we are
+                        // adding it to our filtered list.
+                        filteredlist.add(item);
+                    }
+                }
+                if (filteredlist.isEmpty()) {
+                    // if no item is added in filtered list we are
+                    // displaying a toast message as no data found.
+                    Toast.makeText(getApplicationContext(), "No Data Found..", Toast.LENGTH_SHORT).show();
+                } else {
+                    // at last we are passing that filtered
+                    // list to our adapter class.
+                    myAdapter.filterList(filteredlist);
+                }
+                return false;
+            }
+        });
     }
+
 }

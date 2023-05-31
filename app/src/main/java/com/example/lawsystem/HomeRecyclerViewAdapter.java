@@ -45,9 +45,9 @@ class HomeRecyclerViewAdapter extends RecyclerView.Adapter<HomeRecyclerViewAdapt
         advocates product = addresses.get(position);
 
         holder.textViewname.setText(product.getName());
-        holder.textViewexperiance.setText(product.getExperiance());
-        holder.textViewRating.setText(String.valueOf(product.getRating()));
-        holder.textViewfee.setText(String.valueOf(product.getFee()));
+        //holder.textViewexperiance.setText(product.getExperiance());
+     //   holder.textViewRating.setText(String.valueOf(product.getRating()));
+      //  holder.textViewfee.setText(String.valueOf(product.getFee()));
         holder.imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -55,7 +55,7 @@ class HomeRecyclerViewAdapter extends RecyclerView.Adapter<HomeRecyclerViewAdapt
                 ctx.startActivity(i);
             }
         });
-        holder.imageView.setImageDrawable(ctx.getResources().getDrawable(product.getImage()));
+       // holder.imageView.setImageDrawable(ctx.getResources().getDrawable(product.getImage()));
     }
 
     // This Method returns the size of the Array
@@ -71,10 +71,10 @@ class HomeRecyclerViewAdapter extends RecyclerView.Adapter<HomeRecyclerViewAdapt
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            textViewname = itemView.findViewById(R.id.advname);
-            textViewexperiance = itemView.findViewById(R.id.advexp);
-            textViewRating = itemView.findViewById(R.id.advrating);
-            textViewfee = itemView.findViewById(R.id.advfee);
+       //     textViewname = itemView.findViewById(R.id.advname);
+       //     textViewexperiance = itemView.findViewById(R.id.advexp);
+       //     textViewRating = itemView.findViewById(R.id.advrating);
+        //    textViewfee = itemView.findViewById(R.id.advfee);
             imageView = itemView.findViewById(R.id.imageView);
         }
     }

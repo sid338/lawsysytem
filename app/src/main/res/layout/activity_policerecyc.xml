@@ -4,21 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".recyc">
-
-    <SearchView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/searchview_Adv"/>
+    tools:context=".policerecyc">
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/recyclerview"
-        android:layout_marginTop="25dp"
+        android:id="@+id/policerecyclerview"
         tools:itemCount="10"
-        tools:listitem="@layout/activity_product_layout"
+        tools:listitem="@layout/activity_policedetails"
 
         />
 
