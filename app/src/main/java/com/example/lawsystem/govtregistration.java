@@ -22,7 +22,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class govtregistration extends AppCompatActivity implements uriInterface{
 
-    String occupation, fullname,emailid,contactno,username,password,confirmpassword;
+    String occupation,fullname,emailid,contactno,username,password,confirmpassword;
 
     TextInputEditText   textInputEditText0,textInputEditText1,textInputEditText2,textInputEditText3,textInputEditText4,textInputEditText5,textInputEditText6;
 
@@ -77,7 +77,7 @@ public class govtregistration extends AppCompatActivity implements uriInterface{
                 confirmpassword = textInputEditText6.getText().toString();
 
 
-                if ( TextUtils.isEmpty(occupation) || TextUtils.isEmpty(fullname) || emailid.isEmpty() || contactno.isEmpty() || username.isEmpty() || password.isEmpty() || confirmpassword.isEmpty()) {
+                if ( TextUtils.isEmpty(occupation) || TextUtils.isEmpty(fullname) || emailid.isEmpty() || contactno.isEmpty() || username.isEmpty() || password.isEmpty() || confirmpassword.isEmpty()  ) {
 
                     Toast.makeText(govtregistration.this, "Please enter all details", Toast.LENGTH_SHORT).show();
                 } else if (password.equals(confirmpassword)) {
@@ -89,13 +89,13 @@ public class govtregistration extends AppCompatActivity implements uriInterface{
                                 Intent i = new Intent(getApplicationContext(), MainActivity.class);
                                 startActivity(i);
                             } else {
-                                databaseReference.child("request").child(username).child("Occupation").setValue(occupation);
-                                databaseReference.child("request").child(username).child("Username").setValue(username);
-                                databaseReference.child("request").child(username).child("Name").setValue(fullname);
-                                databaseReference.child("request").child(username).child("ContactNo").setValue(contactno);
-                                databaseReference.child("request").child(username).child("Email_Id").setValue(emailid);
-                                databaseReference.child("request").child(username).child("Password").setValue(password);
-                                databaseReference.child("request").child(username).child("document").setValue(fileUploadUrl);
+                                databaseReference.child("request").child(contactno).child("Occupation").setValue(occupation);
+                                databaseReference.child("request").child(contactno).child("Username").setValue(username);
+                                databaseReference.child("request").child(contactno).child("Name").setValue(fullname);
+                                databaseReference.child("request").child(contactno).child("ContactNo").setValue(contactno);
+                                databaseReference.child("request").child(contactno).child("Email_Id").setValue(emailid);
+                                databaseReference.child("request").child(contactno).child("Password").setValue(password);
+                                databaseReference.child("request").child(contactno).child("document").setValue(fileUploadUrl);
                                 Toast.makeText(govtregistration.this, "", Toast.LENGTH_SHORT).show();
                                 Intent i = new Intent(getApplicationContext(), notification.class);
                                 startActivity(i);

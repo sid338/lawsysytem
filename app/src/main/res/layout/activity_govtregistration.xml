@@ -24,13 +24,13 @@
         android:layout_marginRight="35dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Enter your occupation"
-        app:hintTextColor="@color/white">
+        android:hint="Lawyer Designation"
+        app:hintTextColor="@color/black">
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/occupation"
-            android:textColor="@color/white"/>
+            android:textColor="@color/black"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -41,12 +41,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Enter Your Full Name"
-        app:hintTextColor="@color/white">
+        app:hintTextColor="@color/black">
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/name"
-            android:textColor="@color/white"/>
+            android:textColor="@color/black"/>
     </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -58,12 +58,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Enter Your Email ID"
-        app:hintTextColor="@color/white">
+        app:hintTextColor="@color/black">
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/email"
-            android:textColor="@color/white"/>
+            android:textColor="@color/black"/>
     </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -76,14 +76,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Enter Your Mobile Number"
-        app:hintTextColor="@color/white">
+        app:hintTextColor="@color/black">
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/mob"
-            android:textColor="@color/white"/>
+            android:textColor="@color/black"/>
     </com.google.android.material.textfield.TextInputLayout>
-
 
 
     <com.google.android.material.textfield.TextInputLayout
@@ -94,14 +93,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Enter Your User Name"
-        app:hintTextColor="@color/white">
+        app:hintTextColor="@color/black">
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/username"
-            android:textColor="@color/white"/>
+            android:text="ADV/"
+            android:textColor="@color/black"/>
     </com.google.android.material.textfield.TextInputLayout>
-
 
 
     <com.google.android.material.textfield.TextInputLayout
@@ -112,12 +111,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Enter Your Password"
-        app:hintTextColor="@color/white">
+        app:hintTextColor="@color/black">
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/password"
-            android:textColor="@color/white"/>
+            android:textColor="@color/black"/>
     </com.google.android.material.textfield.TextInputLayout>
     <com.google.android.material.textfield.TextInputLayout
         android:layout_marginTop="10dp"
@@ -127,12 +126,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Confirm Password"
-        app:hintTextColor="@color/white">
+        app:hintTextColor="@color/black">
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/cpass"
-            android:textColor="@color/white"/>
+            android:textColor="@color/black"/>
     </com.google.android.material.textfield.TextInputLayout>
     <Button
         android:layout_width="100dp"
@@ -156,6 +155,7 @@
         android:layout_height="wrap_content"
         android:text="Account Alredy Exist click signup"
         android:gravity="center"/>
+
     <Button
         android:layout_width="80dp"
         android:layout_height="50dp"

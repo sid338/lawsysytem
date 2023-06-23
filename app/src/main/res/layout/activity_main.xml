@@ -1,18 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/theme"
-    android:orientation="vertical"
-    tools:context=".MainActivity">
-
+    android:background="#8294C4"
+    android:orientation="vertical">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="WELCOME"
-        android:textSize="40dp"
+        android:layout_marginTop="50dp"
+        android:text="LAW SYSTEM"
+        android:textSize="35dp"
         android:id="@+id/header"
         android:gravity="center"
         android:textColor="@color/white"
@@ -21,39 +23,108 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+</LinearLayout>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="SignIn"
         android:gravity="center"
-        android:textColor="@color/white"
-        android:layout_marginTop="130dp"/>
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="30dp"/>
 
+
+
+
+    <com.addisonelliott.segmentedbutton.SegmentedButtonGroup
+        android:id="@+id/segmentedbutton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="4dp"
+        android:layout_marginTop="30dp"
+        android:elevation="2dp"
+        android:background="@color/white"
+        app:borderColor="#545548"
+        app:borderWidth="1dp"
+        app:dividerPadding="10dp"
+        app:dividerWidth="1dp"
+        app:position="0"
+        app:radius="30dp"
+        app:ripple="true"
+        app:rippleColor="#FAFAFA"
+        app:selectedBackground="#ACB1D6">
+
+        <com.addisonelliott.segmentedbutton.SegmentedButton
+
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="10dp"
+            app:drawableGravity="top"
+            app:selectedTextColor="@color/black"
+            app:text="User"
+            app:textColor="@color/black" />
+
+        <com.addisonelliott.segmentedbutton.SegmentedButton
+            android:layout_width="5dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="10dp"
+            app:drawableGravity="top"
+            app:selectedTextColor="@color/black"
+            app:text="Lawyer"
+            app:textColor="@color/black" />
+
+
+    </com.addisonelliott.segmentedbutton.SegmentedButtonGroup>
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="30dp"
+        app:cardCornerRadius="30dp"
+        app:cardElevation="30dp"
+        android:backgroundTint="#ACB1D6">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
     <com.google.android.material.textfield.TextInputLayout
-        android:layout_marginTop="13dp"
+        android:layout_marginTop="40dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Username"
-        app:hintTextColor="@color/white">
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:padding="10dp"
+        android:textColorHint="@color/black"
+        app:hintTextColor="@color/black">
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/username"
-            android:textColor="@color/white"/>
+            android:textColor="@color/black"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="password"
-        app:hintTextColor="@color/white"
-        >
+        android:padding="10dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:textColorHint="@color/black"
+        app:hintTextColor="@color/black">
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/password"
-            android:textColor="@color/white"/>
+            android:textColor="@color/black"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
@@ -65,13 +136,24 @@
         android:layout_marginTop="20dp"
         android:layout_marginEnd="10dp"
         android:text="Login"
+        android:layout_marginBottom="20dp"
+        android:backgroundTint="#8294C4"
+
         />
+        </LinearLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="Dont have an account? Sign in"
         android:id="@+id/signin"/>
+
 
     <TextView
         android:layout_width="match_parent"

@@ -35,7 +35,7 @@ public class recyc extends AppCompatActivity {
 
         recyclerView=(RecyclerView) findViewById(R.id.recyclerview);
         SharedPreferences sh= getSharedPreferences("MySharedPreferences1", MODE_PRIVATE);
-        String s1=sh.getString("Username","");
+        String s1=sh.getString("contactno","");
         recyclerView=findViewById(R.id.recyclerview);
         searchView= findViewById(R.id.searchview_Adv);
         databaseReference= FirebaseDatabase.getInstance().getReferenceFromUrl("https://lawsystem-49e23-default-rtdb.firebaseio.com/");
@@ -46,13 +46,13 @@ public class recyc extends AppCompatActivity {
         Advocatelist=new ArrayList<>();
         myAdapter =new AdvocateAdapter(this,Advocatelist);
         recyclerView.setAdapter(myAdapter);
-        databaseReference.child("request").addValueEventListener(new ValueEventListener() {
+        databaseReference.child("Lawyer").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 Advocatelist.clear();
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-                    advocates mechanic = dataSnapshot.getValue(advocates.class);
-                    Advocatelist.add(mechanic);
+                    advocates advocate = dataSnapshot.getValue(advocates.class);
+                    Advocatelist.add(advocate);
                 }
                 myAdapter.notifyDataSetChanged();
             }

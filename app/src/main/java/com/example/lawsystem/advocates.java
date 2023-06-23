@@ -2,14 +2,14 @@ package com.example.lawsystem;
 
 public class advocates {
 
-    private String Name,ContactNo,Email_Id;
+    private String Name,contactno,Email_Id;
 
     public advocates() {
     }
 
     public advocates(String name, String contactNo, String email_Id) {
         Name = name;
-        ContactNo = contactNo;
+        contactno = contactNo;
         Email_Id = email_Id;
     }
 
@@ -22,11 +22,11 @@ public class advocates {
     }
 
     public String getContactNo() {
-        return ContactNo;
+        return contactno;
     }
 
-    public void setContactNo(String contactNo) {
-        ContactNo = contactNo;
+    public void setContactNo(String contactno) {
+        contactno = contactno;
     }
 
     public String getEmail_Id() {

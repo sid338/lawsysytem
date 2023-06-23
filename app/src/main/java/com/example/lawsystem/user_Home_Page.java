@@ -79,6 +79,9 @@ public class user_Home_Page extends Fragment {
         ArrayList<SlideModel>slideModels=new ArrayList<>();
         slideModels.add(new SlideModel(R.drawable.hkb, ScaleTypes.FIT));
         slideModels.add(new SlideModel(R.drawable.sen, ScaleTypes.FIT));
+        slideModels.add(new SlideModel(R.drawable.sru, ScaleTypes.FIT));
+        slideModels.add(new SlideModel(R.drawable.dev, ScaleTypes.FIT));
+
         imageSlider.setImageList(slideModels,ScaleTypes.FIT);
 
         adv=v.findViewById(R.id.image_view1);
