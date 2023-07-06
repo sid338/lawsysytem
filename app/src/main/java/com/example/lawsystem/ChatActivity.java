@@ -31,7 +31,7 @@ import com.google.firebase.storage.StorageReference;
 
 import java.util.ArrayList;
 
-public class ChatActivity extends AppCompatActivity {
+public class ChatActivity extends AppCompatActivity implements userChatInterface {
 
     private ActivityChatBinding binding;
     private ChatAdapter adapter;
@@ -43,6 +43,7 @@ public class ChatActivity extends AppCompatActivity {
     String namestr;
     String  isUser;
     String  fromName;
+    static userChatInterface userChatInterface;
 
 
 
@@ -54,6 +55,7 @@ public class ChatActivity extends AppCompatActivity {
         sh = getSharedPreferences("MySharedPreferences", Context.MODE_PRIVATE); // to store data for temp time
         databaseReference= FirebaseDatabase.getInstance().getReferenceFromUrl("https://lawsystem-49e23-default-rtdb.firebaseio.com//");
 
+        userChatInterface = this;
         Intent intent=getIntent();
         namestr=intent.getStringExtra("name");
         String contactstr=intent.getStringExtra("contact");
@@ -240,4 +242,20 @@ public class ChatActivity extends AppCompatActivity {
     }
 
 
+    @Override
+    public void userInterface(String name) {
+        Intent intent = new Intent(this, RazorPay.class);
+        intent.putExtra("amount", name);
+        startActivity(intent);
+    }
+
+    @Override
+    public void userIgnoreInterface(String name) {
+        sendToAdv(name + " payment is cancelled by user", fromName, namestr, isUser, false);
+    }
+
+    @Override
+    public void userPaymentSuccessInterface(String name) {
+        sendToAdv("Amount of " + name + " paid successfully", fromName, namestr, isUser, false);
+    }
 }

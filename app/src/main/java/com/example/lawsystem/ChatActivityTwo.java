@@ -6,9 +6,13 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.Editable;
 import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -34,16 +38,15 @@ import java.util.ArrayList;
 
 public class ChatActivityTwo extends AppCompatActivity {
 
-    private ActivityChatBinding binding;
-    private ChatAdaptertwo adapter;
     DatabaseReference databaseReference;
     SharedPreferences sh;
-    private ArrayList<ChatModel> chatModels = new ArrayList<>();
     Uri imageuri = null;
     String name;
     String namestr;
-    String  isUser;
-
+    String isUser;
+    private ActivityChatBinding binding;
+    private ChatAdaptertwo adapter;
+    private final ArrayList<ChatModel> chatModels = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,16 +54,16 @@ public class ChatActivityTwo extends AppCompatActivity {
         binding = ActivityChatBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         sh = getSharedPreferences("MySharedPreferences", Context.MODE_PRIVATE); // to store data for temp time
-        databaseReference= FirebaseDatabase.getInstance().getReferenceFromUrl("https://lawsystem-49e23-default-rtdb.firebaseio.com//");
+        databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://lawsystem-49e23-default-rtdb.firebaseio.com//");
 
-        Intent intent=getIntent();
-         namestr=intent.getStringExtra("name");
-        String contactstr=intent.getStringExtra("contact");
-         isUser=intent.getStringExtra("user");
+        Intent intent = getIntent();
+        namestr = intent.getStringExtra("name");
+        String contactstr = intent.getStringExtra("contact");
+        isUser = intent.getStringExtra("user");
         binding.chat.setLayoutManager(new LinearLayoutManager(this));
 
 
-        String fromNumber = sh.getString("number","");
+        String fromNumber = sh.getString("number", "");
         adapter = new ChatAdaptertwo(this, chatModels);
         binding.chat.setAdapter(adapter);
 
@@ -72,20 +75,18 @@ public class ChatActivityTwo extends AppCompatActivity {
         });
 
 
-
-
         name = sh.getString("UserName", "");
         databaseReference.child("Chat").child(namestr).child(name).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 chatModels.clear();
-                for (DataSnapshot snapshot1 : snapshot.getChildren()){
-                    ChatModel model =  snapshot1.getValue(ChatModel.class);
+                for (DataSnapshot snapshot1 : snapshot.getChildren()) {
+                    ChatModel model = snapshot1.getValue(ChatModel.class);
                     model.setRead(true);
                     chatModels.add(model);
                 }
                 adapter.notifyDataSetChanged();
-                if(chatModels.size() > 0){
+                if (chatModels.size() > 0) {
                     binding.tvProfileName.setText(chatModels.get(0).getFromName());
                 }
             }
@@ -102,12 +103,11 @@ public class ChatActivityTwo extends AppCompatActivity {
         adapter.notifyDataSetChanged();
 
         binding.imagebutton.setOnClickListener(v -> {
-            String message=binding.text.getText().toString();
+            String message = binding.text.getText().toString();
 
-            if(!TextUtils.isEmpty(message)){
+            if (!TextUtils.isEmpty(message)) {
                 sendToUser(message, name, namestr, isUser, false, false);
-            }
-            else {
+            } else {
                 Toast.makeText(this, "Enter a message", Toast.LENGTH_SHORT).show();
             }
         });
@@ -124,9 +124,39 @@ public class ChatActivityTwo extends AppCompatActivity {
 
         TextView tvPayNow = bottomSheetDialog.findViewById(R.id.tvPayNow);
         TextView tvDoc = bottomSheetDialog.findViewById(R.id.tvDoc);
+        EditText etPay = bottomSheetDialog.findViewById(R.id.etPay);
+        Button btnPay = bottomSheetDialog.findViewById(R.id.btnPay);
         tvPayNow.setOnClickListener(v -> {
-            sendToUser("500", name, namestr, isUser, true, false);
-            bottomSheetDialog.dismiss();
+
+            etPay.setVisibility(View.VISIBLE);
+            btnPay.setVisibility(View.VISIBLE);
+
+        });
+
+        etPay.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                etPay.setError(null);
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                etPay.setError(null);
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                etPay.setError(null);
+            }
+        });
+
+        btnPay.setOnClickListener(v -> {
+            if (!TextUtils.isEmpty(etPay.getText().toString())) {
+                sendToUser(etPay.getText().toString(), name, namestr, isUser, true, false);
+                bottomSheetDialog.dismiss();
+            } else {
+                etPay.setError("Required");
+            }
         });
 
         tvDoc.setOnClickListener(v -> {
@@ -143,7 +173,7 @@ public class ChatActivityTwo extends AppCompatActivity {
     }
 
     private void sendToUser(String message, String fromName, String namestr, String isUser, boolean isPayment, boolean isFile) {
-        ChatModel chatModel=new ChatModel();
+        ChatModel chatModel = new ChatModel();
         chatModel.setMessage(message);
         chatModel.setFromName(fromName);
         chatModel.setToName(namestr);
@@ -192,7 +222,7 @@ public class ChatActivityTwo extends AppCompatActivity {
                     Uri uri = task.getResult();
                     String myurl;
                     myurl = uri.toString();
-                    Log.e("TAG", "onComplete: "+myurl );
+                    Log.e("TAG", "onComplete: " + myurl);
                     Toast.makeText(ChatActivityTwo.this, "Uploaded Successfully", Toast.LENGTH_SHORT).show();
                     uploadFile(myurl);
                 } else {

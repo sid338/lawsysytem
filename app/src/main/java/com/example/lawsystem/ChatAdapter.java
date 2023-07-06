@@ -8,6 +8,7 @@ import android.text.style.UnderlineSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.browser.customtabs.CustomTabsIntent;
@@ -18,6 +19,8 @@ import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textview.MaterialTextView;
 
 import java.util.ArrayList;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 
 public class ChatAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
@@ -85,7 +88,10 @@ public class ChatAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                 content.setSpan(new UnderlineSpan(), 0, content.length(), 0);
                 one.name.setText(content);
 
-                one.name.setOnClickListener(v -> {
+                one.pdf.setVisibility(View.VISIBLE);
+                one.name.setVisibility(View.GONE);
+
+                one.pdf.setOnClickListener(v -> {
                     CustomTabsIntent.Builder customIntent = new CustomTabsIntent.Builder();
 
                     customIntent.setToolbarColor(ContextCompat.getColor(context, R.color.black));
@@ -102,7 +108,11 @@ public class ChatAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                 content.setSpan(new UnderlineSpan(), 0, content.length(), 0);
                 one.name.setText(content);
 
-                one.name.setOnClickListener(v -> {
+                one.pdf.setVisibility(View.VISIBLE);
+                one.name.setVisibility(View.GONE);
+                one.ivImageAgent.setVisibility(View.GONE);
+
+                one.pdf.setOnClickListener(v -> {
                     CustomTabsIntent.Builder customIntent = new CustomTabsIntent.Builder();
 
                     customIntent.setToolbarColor(ContextCompat.getColor(context, R.color.black));
@@ -115,8 +125,11 @@ public class ChatAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             one.name.setText(list.get(position).getMessage());
             one.tv_student_title.setText("Request from " +list.get(position).getFromName());
 
-            one.btnPayNow.setOnClickListener(v -> {
+            one.btnPayNow.setOnClickListener(v -> {ChatActivity.userChatInterface.userInterface(list.get(position).getMessage());
+            });
 
+            one.btnDecline.setOnClickListener(v -> {
+                ChatActivity.userChatInterface.userIgnoreInterface(list.get(position).getMessage());
             });
         }
     }
@@ -126,10 +139,12 @@ public class ChatAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public class ViewHolderOne extends RecyclerView.ViewHolder {
 
         public MaterialTextView name;
+        ImageView pdf;
 
         public ViewHolderOne(View itemView) {
             super(itemView);
             name = itemView.findViewById(R.id.tv_student_msg);
+            pdf = itemView.findViewById(R.id.pdf);
 
         }
     }
@@ -140,9 +155,13 @@ public class ChatAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public class ViewHolderTwo extends RecyclerView.ViewHolder {
 
         public MaterialTextView name;
+        ImageView pdf;
+        CircleImageView ivImageAgent;
         public ViewHolderTwo(View itemView) {
             super(itemView);
             name = itemView.findViewById(R.id.tvAgentNameChat);
+            pdf = itemView.findViewById(R.id.pdf);
+            ivImageAgent = itemView.findViewById(R.id.ivImageAgent);
 
         }
     }

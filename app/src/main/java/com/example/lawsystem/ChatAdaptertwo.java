@@ -1,22 +1,36 @@
 package com.example.lawsystem;
 
+import static android.provider.MediaStore.Video.Thumbnails.MINI_KIND;
+
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.media.ThumbnailUtils;
 import android.net.Uri;
+import android.os.Build;
 import android.text.SpannableString;
 import android.text.style.UnderlineSpan;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
+import androidx.annotation.NonNull;
 import androidx.browser.customtabs.CustomTabsIntent;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
+import com.bumptech.glide.request.target.SimpleTarget;
+import com.bumptech.glide.request.transition.Transition;
 import com.google.android.material.textview.MaterialTextView;
 
 import java.util.ArrayList;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 
 public class ChatAdaptertwo extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
@@ -31,16 +45,14 @@ public class ChatAdaptertwo extends RecyclerView.Adapter<RecyclerView.ViewHolder
         this.context = context;
         this.list = list;
     }
+
     @Override
-    public int getItemViewType(int position)
-    {
-        if (list.get(position).isPayment()){
-            return  LAYOUT_THREE;
-        }
-        else if (list.get(position).isUser()){
-            return  LAYOUT_TWO;
-        }
-        else {
+    public int getItemViewType(int position) {
+        if (list.get(position).isPayment()) {
+            return LAYOUT_THREE;
+        } else if (list.get(position).isUser()) {
+            return LAYOUT_TWO;
+        } else {
             return LAYOUT_ONE;
         }
     }
@@ -56,18 +68,15 @@ public class ChatAdaptertwo extends RecyclerView.Adapter<RecyclerView.ViewHolder
         View view = null;
         RecyclerView.ViewHolder viewHolder = null;
 
-        if(viewType==LAYOUT_ONE)
-        {
-            view = LayoutInflater.from(parent.getContext()).inflate(R.layout.one,parent,false);
+        if (viewType == LAYOUT_ONE) {
+            view = LayoutInflater.from(parent.getContext()).inflate(R.layout.one, parent, false);
             viewHolder = new ViewHolderOne(view);
-        } else  if(viewType == LAYOUT_TWO){
-            view = LayoutInflater.from(parent.getContext()).inflate(R.layout.two,parent,false);
-            viewHolder= new ViewHolderTwo(view);
-        }
-        else
-        {
-            view = LayoutInflater.from(parent.getContext()).inflate(R.layout.three,parent,false);
-            viewHolder= new ViewHolderThree(view);
+        } else if (viewType == LAYOUT_TWO) {
+            view = LayoutInflater.from(parent.getContext()).inflate(R.layout.two, parent, false);
+            viewHolder = new ViewHolderTwo(view);
+        } else {
+            view = LayoutInflater.from(parent.getContext()).inflate(R.layout.three, parent, false);
+            viewHolder = new ViewHolderThree(view);
         }
 
         return viewHolder;
@@ -76,16 +85,19 @@ public class ChatAdaptertwo extends RecyclerView.Adapter<RecyclerView.ViewHolder
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
 
-        if(holder.getItemViewType() == LAYOUT_ONE)
-        {
+        if (holder.getItemViewType() == LAYOUT_ONE) {
             ViewHolderOne one = (ViewHolderOne) holder;
             one.name.setText(list.get(position).getMessage());
-            if(list.get(position).isFile()){
+            if (list.get(position).isFile()) {
                 SpannableString content = new SpannableString(list.get(position).getMessage());
                 content.setSpan(new UnderlineSpan(), 0, content.length(), 0);
                 one.name.setText(content);
 
-                one.name.setOnClickListener(v -> {
+                one.pdf.setVisibility(View.VISIBLE);
+                one.name.setVisibility(View.GONE);
+
+
+                one.pdf.setOnClickListener(v -> {
                     CustomTabsIntent.Builder customIntent = new CustomTabsIntent.Builder();
 
                     customIntent.setToolbarColor(ContextCompat.getColor(context, R.color.black));
@@ -93,16 +105,19 @@ public class ChatAdaptertwo extends RecyclerView.Adapter<RecyclerView.ViewHolder
                     context.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(list.get(position).getMessage())));
                 });
             }
-        }
-        else if (holder.getItemViewType() == LAYOUT_TWO){
+        } else if (holder.getItemViewType() == LAYOUT_TWO) {
             ViewHolderTwo one = (ViewHolderTwo) holder;
             one.name.setText(list.get(position).getMessage());
-            if(list.get(position).isFile()){
+            if (list.get(position).isFile()) {
                 SpannableString content = new SpannableString(list.get(position).getMessage());
                 content.setSpan(new UnderlineSpan(), 0, content.length(), 0);
                 one.name.setText(content);
 
-                one.name.setOnClickListener(v -> {
+                one.pdf.setVisibility(View.VISIBLE);
+                one.name.setVisibility(View.GONE);
+                one.ivImageAgent.setVisibility(View.GONE);
+
+                one.pdf.setOnClickListener(v -> {
                     CustomTabsIntent.Builder customIntent = new CustomTabsIntent.Builder();
 
                     customIntent.setToolbarColor(ContextCompat.getColor(context, R.color.black));
@@ -113,7 +128,7 @@ public class ChatAdaptertwo extends RecyclerView.Adapter<RecyclerView.ViewHolder
         } else {
             ViewHolderThree three = (ViewHolderThree) holder;
 
-           three.name.setText(list.get(position).getMessage());
+            three.name.setText(list.get(position).getMessage());
             three.tv_student_title.setText("Request from You");
         }
     }
@@ -123,10 +138,14 @@ public class ChatAdaptertwo extends RecyclerView.Adapter<RecyclerView.ViewHolder
     public class ViewHolderOne extends RecyclerView.ViewHolder {
 
         public MaterialTextView name;
+        ImageView pdf;
+
 
         public ViewHolderOne(View itemView) {
             super(itemView);
             name = itemView.findViewById(R.id.tv_student_msg);
+            pdf = itemView.findViewById(R.id.pdf);
+
 
         }
     }
@@ -137,9 +156,14 @@ public class ChatAdaptertwo extends RecyclerView.Adapter<RecyclerView.ViewHolder
     public class ViewHolderTwo extends RecyclerView.ViewHolder {
 
         public MaterialTextView name;
+        ImageView pdf;
+        CircleImageView ivImageAgent;
+
         public ViewHolderTwo(View itemView) {
             super(itemView);
             name = itemView.findViewById(R.id.tvAgentNameChat);
+            pdf = itemView.findViewById(R.id.pdf);
+            ivImageAgent = itemView.findViewById(R.id.ivImageAgent);
 
         }
     }
@@ -147,6 +171,7 @@ public class ChatAdaptertwo extends RecyclerView.Adapter<RecyclerView.ViewHolder
     public class ViewHolderThree extends RecyclerView.ViewHolder {
 
         public MaterialTextView name, tv_student_title;
+
         public ViewHolderThree(View itemView) {
             super(itemView);
             name = itemView.findViewById(R.id.tv_student_msg);

@@ -33,7 +33,7 @@
      android:layout_height="wrap_content"
      android:layout_marginStart="20dp"
      android:layout_marginEnd="20dp"
-     android:text="Upload File"
+     android:text="Retr File"
      android:id="@+id/btnopen"
      />
 

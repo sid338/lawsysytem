@@ -97,4 +97,14 @@ public class UserChatList extends AppCompatActivity implements userChatInterface
         intent.putExtra("user","2");
         startActivity(intent);
     }
+
+    @Override
+    public void userIgnoreInterface(String name) {
+
+    }
+
+    @Override
+    public void userPaymentSuccessInterface(String name) {
+
+    }
 }

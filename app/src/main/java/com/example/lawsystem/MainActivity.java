@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
                                 if (snapshot.hasChild(usernameStr)) {
                                     final String getPassword = snapshot.child(usernameStr).child("Password").getValue(String.class);
                                     final String getUsername = snapshot.child(usernameStr).child("Username").getValue(String.class);
-                                    Toast.makeText(MainActivity.this, snapshot.toString(), Toast.LENGTH_SHORT).show();
+                                    //Toast.makeText(MainActivity.this, snapshot.toString(), Toast.LENGTH_SHORT).show();
                                     if (getPassword.equals(passwordStr)) {
                                         SharedPreferences sh = getSharedPreferences("MySharedPreferences", MODE_PRIVATE);
                                         SharedPreferences.Editor editor=sh.edit();

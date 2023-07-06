@@ -8,6 +8,7 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -25,6 +26,8 @@ public class adddata extends AppCompatActivity {
 
     ImageView upload;
     Uri imageuri = null;
+
+    SharedPreferences sh;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +55,10 @@ public class adddata extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == RESULT_OK) {
 
+            sh=getApplicationContext().getSharedPreferences("MySharedPreferences", MODE_PRIVATE);
+            String username=sh.getString("name","");
+
+
             // Here we are initialising the progress dialog box
             dialog = new ProgressDialog(this);
             dialog.setMessage("Uploading");
@@ -65,7 +72,7 @@ public class adddata extends AppCompatActivity {
             final String messagePushID = timestamp;
             Toast.makeText(adddata.this, imageuri.toString(), Toast.LENGTH_SHORT).show();
             // Here we are uploading the pdf in firebase storage with the name of current time
-            final StorageReference filepath = storageReference.child(messagePushID + "." + "pdf");
+            final StorageReference filepath = storageReference.child(username).child(messagePushID + "." + "pdf");
             Toast.makeText(adddata.this, filepath.getName(), Toast.LENGTH_SHORT).show();
             filepath.putFile(imageuri).continueWithTask(new Continuation() {
                 @Override

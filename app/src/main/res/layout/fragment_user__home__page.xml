@@ -6,7 +6,7 @@
     android:orientation="vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".user_Home_Page"
-    android:background="@drawable/theme">
+    android:background="#FFFFFF">
 
 
             <include layout="@layout/toolbar"/>
@@ -16,7 +16,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
 
-                app:cardBackgroundColor="#9DB2BF"
+                app:cardBackgroundColor="#C3ACD0"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginBottom="20dp"
@@ -54,7 +54,7 @@
                     android:orientation="vertical"
                     android:padding="10dp"
                     android:layout_gravity="center"
-                    android:background="#526D82"
+                    android:background="#C3ACD0"
 
                     >
 
@@ -202,7 +202,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
 
-        app:cardBackgroundColor="#5C88AA"
+        app:cardBackgroundColor="#C3ACD0"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="20dp"
@@ -220,6 +220,15 @@
             android:textStyle="bold"/>
 
     </com.google.android.material.card.MaterialCardView>
+
+
+<!--    <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_gravity="right"-->
+<!--        android:backgroundTint="@color/white"-->
+<!--        android:src="@drawable/baseline_add_24"-->
+<!--        />-->
 
 
 </LinearLayout>
