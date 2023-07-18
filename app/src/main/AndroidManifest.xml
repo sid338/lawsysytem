@@ -4,6 +4,7 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -15,6 +16,13 @@
         android:theme="@style/Theme.LawSystem"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
+        <activity
+            android:name=".UserReport"
+            android:exported="false" />
+        <activity
+            android:name=".AdvocateReport"
+            android:exported="false" />
+
         <receiver
             android:name="com.razorpay.RzpTokenReceiver"
             android:exported="false">
@@ -25,7 +33,6 @@
 
         <activity
             android:name="com.razorpay.CheckoutActivity"
-
             android:exported="true"
             android:theme="@style/CheckoutTheme">
             <intent-filter>
@@ -36,8 +43,6 @@
                     android:scheme="io.rzp" />
             </intent-filter>
         </activity>
-
-
         <activity
             android:name=".RazorPay"
             android:exported="false" />

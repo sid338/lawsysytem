@@ -67,12 +67,12 @@ public class ChatActivityTwo extends AppCompatActivity {
         adapter = new ChatAdaptertwo(this, chatModels);
         binding.chat.setAdapter(adapter);
 
-        binding.constraint.setVisibility(View.VISIBLE);
+       /* binding.constraint.setVisibility(View.VISIBLE);
         binding.constraint.setOnClickListener(v -> {
             Intent intent1 = new Intent(this, UserViewProfileActivity.class);
             intent1.putExtra("name", binding.tvProfileName.getText().toString());
             startActivity(intent1);
-        });
+        });*/
 
 
         name = sh.getString("UserName", "");
@@ -85,9 +85,10 @@ public class ChatActivityTwo extends AppCompatActivity {
                     model.setRead(true);
                     chatModels.add(model);
                 }
+                binding.chat.scrollToPosition(binding.chat.getAdapter().getItemCount()-1);
                 adapter.notifyDataSetChanged();
                 if (chatModels.size() > 0) {
-                    binding.tvProfileName.setText(chatModels.get(0).getFromName());
+                  //  binding.tvProfileName.setText(chatModels.get(0).getFromName());
                 }
             }
 

@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".advprofile"
+    android:background="#610101"
     android:orientation="vertical">
 
     <LinearLayout
@@ -12,6 +13,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_gravity="center"
+
         >
 
         <de.hdodenhof.circleimageview.CircleImageView
@@ -45,7 +47,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:gravity="center"
-        android:background="#FFFFFF"
+        android:background="#610101"
         >
 
     <LinearLayout

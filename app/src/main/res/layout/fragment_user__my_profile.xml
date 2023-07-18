@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".MainActivity"
-
+    android:background="#3D0000"
     >
     <LinearLayout
         android:layout_width="match_parent"
@@ -31,7 +31,8 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:gravity="center"
-        android:background="#FFFFFF"
+        android:background="@drawable/red"
+
         >
 <!--        <LinearLayout-->
 <!--            android:layout_width="match_parent"-->

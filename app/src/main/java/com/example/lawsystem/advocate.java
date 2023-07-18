@@ -20,6 +20,11 @@ public class advocate extends AppCompatActivity {
            Intent i = new Intent(this, UserChatList.class);
            startActivity(i);
         });
+
+        binding.card3.setOnClickListener(v -> {
+            Intent i = new Intent(this, AdvocateReport.class);
+            startActivity(i);
+        });
     }
 
 }

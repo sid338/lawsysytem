@@ -6,4 +6,8 @@
     </style>
 
     <style name="Theme.LawSystem" parent="Base.Theme.LawSystem" />
+
+    <style name="BottomNavigationView">
+        <item name="colorSecondaryContainer">#EB0909</item>
+    </style>
 </resources>

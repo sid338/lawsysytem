@@ -5,8 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".advocate"
-    android:orientation="vertical">
-
+    android:orientation="vertical"
+    android:background="@drawable/red"
+    >
     <include layout="@layout/toolbar"/>
 
     <com.google.android.material.card.MaterialCardView
@@ -14,7 +15,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
 
-        app:cardBackgroundColor="#457879"
+        app:cardBackgroundColor="#3D0000"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="20dp"
@@ -51,7 +52,7 @@
             android:orientation="vertical"
             android:padding="10dp"
             android:layout_gravity="center"
-            android:background="@color/white"
+            android:background="#3D0000"
             >
 
 

@@ -20,7 +20,8 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 
-public class recyc extends AppCompatActivity {
+public class
+recyc extends AppCompatActivity {
 
     ArrayList<advocates> Advocatelist;
     DatabaseReference databaseReference;

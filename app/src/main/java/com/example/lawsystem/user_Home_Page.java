@@ -104,7 +104,7 @@ public class user_Home_Page extends Fragment {
         card2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i=new Intent(getContext(), policerecyc.class);
+                Intent i=new Intent(getContext(), UserReport.class);
                 startActivity(i);
             }
         });

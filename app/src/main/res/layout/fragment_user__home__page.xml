@@ -6,27 +6,37 @@
     android:orientation="vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".user_Home_Page"
-    android:background="#FFFFFF">
+    android:background="@drawable/red"
+    >
+    <include layout="@layout/toolbar"/>
 
+    <com.denzcoskun.imageslider.ImageSlider
+        android:id="@+id/imageSlider"
+        android:layout_gravity="center"
+        android:layout_width="300dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="20dp"
+        app:iss_period="1000"
+        app:iss_auto_cycle="true"
+        app:iss_delay="1000"
+        app:iss_corner_radius="10">
 
-            <include layout="@layout/toolbar"/>
+    </com.denzcoskun.imageslider.ImageSlider>
 
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-
-                app:cardBackgroundColor="#C3ACD0"
+                app:cardBackgroundColor="#3D0000"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
-                android:layout_marginBottom="20dp"
+                 android:layout_marginBottom="20dp"
                 >
 
                 <com.google.android.material.textview.MaterialTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Services"
-
                     android:padding="8dp"
                     android:textSize="16sp"
                     android:layout_gravity="center|start"
@@ -40,10 +50,8 @@
                 android:id="@+id/materialCardView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
-
                 android:layout_gravity="center_horizontal"
                 >
 
@@ -54,10 +62,8 @@
                     android:orientation="vertical"
                     android:padding="10dp"
                     android:layout_gravity="center"
-                    android:background="#C3ACD0"
-
+                    android:background="#3D0000"
                     >
-
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -68,7 +74,7 @@
 
                         <androidx.cardview.widget.CardView
                             android:layout_width="match_parent"
-                            android:layout_height="70dp"
+                            android:layout_height="60dp"
                             android:layout_margin="12dp"
                             android:layout_weight="1"
                             android:id="@+id/card1">
@@ -103,7 +109,7 @@
 
                         <androidx.cardview.widget.CardView
                             android:layout_width="match_parent"
-                            android:layout_height="70dp"
+                            android:layout_height="60dp"
                             android:layout_margin="12dp"
                             android:layout_weight="1"
                             android:id="@+id/card2">
@@ -135,7 +141,7 @@
                         </androidx.cardview.widget.CardView>
                         <androidx.cardview.widget.CardView
                             android:layout_width="match_parent"
-                            android:layout_height="70dp"
+                            android:layout_height="60dp"
                             android:layout_margin="12dp"
                             android:layout_weight="1"
                             android:id="@+id/card3">
@@ -184,42 +190,31 @@
             </com.google.android.material.card.MaterialCardView>
 
 
-                 <com.denzcoskun.imageslider.ImageSlider
-                     android:id="@+id/imageSlider"
-                     android:layout_gravity="center"
-                     android:layout_width="300dp"
-                     android:layout_height="250dp"
-                     android:layout_marginTop="20dp"
-                     app:iss_period="1000"
-                     app:iss_auto_cycle="true"
-                     app:iss_delay="1000"
-                     app:iss_corner_radius="10">
 
-                 </com.denzcoskun.imageslider.ImageSlider>
 
-    <com.google.android.material.card.MaterialCardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+<!--    <com.google.android.material.card.MaterialCardView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="20dp"-->
 
-        app:cardBackgroundColor="#C3ACD0"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="20dp"
-        >
+<!--        app:cardBackgroundColor="#C3ACD0"-->
+<!--        android:layout_marginStart="10dp"-->
+<!--        android:layout_marginEnd="10dp"-->
+<!--        android:layout_marginBottom="20dp"-->
+<!--        >-->
 
-        <com.google.android.material.textview.MaterialTextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Other Services"
-            android:padding="8dp"
-            android:textSize="16sp"
-            android:layout_gravity="center|start"
-            android:layout_marginStart="20dp"
-            android:textColor="@color/white"
-            android:textStyle="bold"/>
+<!--        <com.google.android.material.textview.MaterialTextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Other Services"-->
+<!--            android:padding="8dp"-->
+<!--            android:textSize="16sp"-->
+<!--            android:layout_gravity="center|start"-->
+<!--            android:layout_marginStart="20dp"-->
+<!--            android:textColor="@color/white"-->
+<!--            android:textStyle="bold"/>-->
 
-    </com.google.android.material.card.MaterialCardView>
+<!--    </com.google.android.material.card.MaterialCardView>-->
 
 
 <!--    <com.google.android.material.floatingactionbutton.FloatingActionButton-->

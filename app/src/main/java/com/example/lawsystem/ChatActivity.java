@@ -91,6 +91,7 @@ public class ChatActivity extends AppCompatActivity implements userChatInterface
                     chatModels.get(i).setRead(true);
                     databaseReference.child("Chat").child(name).child(namestr).child(chatModels.get(i).getKey()).setValue(chatModels.get(i));
                 }
+                binding.chat.scrollToPosition(binding.chat.getAdapter().getItemCount()-1);
                 adapter.notifyDataSetChanged();
             }
 
@@ -256,6 +257,6 @@ public class ChatActivity extends AppCompatActivity implements userChatInterface
 
     @Override
     public void userPaymentSuccessInterface(String name) {
-        sendToAdv("Amount of " + name + " paid successfully", fromName, namestr, isUser, false);
+        sendToAdv("Amount of " + name + " paid successfully   ", fromName, namestr, isUser, false);
     }
 }
