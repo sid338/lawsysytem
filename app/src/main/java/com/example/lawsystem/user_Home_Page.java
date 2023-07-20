@@ -3,14 +3,13 @@ package com.example.lawsystem;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.cardview.widget.CardView;
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+
+import androidx.cardview.widget.CardView;
+import androidx.fragment.app.Fragment;
 
 import com.denzcoskun.imageslider.ImageSlider;
 import com.denzcoskun.imageslider.constants.ScaleTypes;
@@ -24,15 +23,13 @@ import java.util.ArrayList;
  * create an instance of this fragment.
  */
 public class user_Home_Page extends Fragment {
-    ImageView adv,police,file, crime;
-    CardView card1,card2,card3,card4;
-    ImageSlider imageSlider;
-
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-
+    ImageView adv, police, file, crime;
+    CardView card1, card2, card3, card4, card5;
+    ImageSlider imageSlider;
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
@@ -73,38 +70,43 @@ public class user_Home_Page extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View v= inflater.inflate(R.layout.fragment_user__home__page, container, false);
+        View v = inflater.inflate(R.layout.fragment_user__home__page, container, false);
 
         imageSlider = v.findViewById(R.id.imageSlider);
-        ArrayList<SlideModel>slideModels=new ArrayList<>();
-        slideModels.add(new SlideModel(R.drawable.hkb, ScaleTypes.FIT));
-        slideModels.add(new SlideModel(R.drawable.sen, ScaleTypes.FIT));
-        slideModels.add(new SlideModel(R.drawable.sru, ScaleTypes.FIT));
-        slideModels.add(new SlideModel(R.drawable.dev, ScaleTypes.FIT));
+        ArrayList<SlideModel> slideModels = new ArrayList<>();
+        slideModels.add(new SlideModel(R.drawable.banner, ScaleTypes.FIT));
+        slideModels.add(new SlideModel(R.drawable.banner, ScaleTypes.FIT));
+        slideModels.add(new SlideModel(R.drawable.banner, ScaleTypes.FIT));
+        slideModels.add(new SlideModel(R.drawable.banner, ScaleTypes.FIT));
 
-        imageSlider.setImageList(slideModels,ScaleTypes.FIT);
+        imageSlider.setImageList(slideModels, ScaleTypes.FIT);
 
-        adv=v.findViewById(R.id.image_view1);
-        police=v.findViewById(R.id.image_view2);
-        file=v.findViewById(R.id.image_view3);
-       // crime=v.findViewById(R.id.image_view4);
-        card1=v.findViewById(R.id.card1);
-        card2=v.findViewById(R.id.card2);
-        card3=v.findViewById(R.id.card3);
-      //  card4=v.findViewById(R.id.card4);
+        adv = v.findViewById(R.id.image_view1);
+        police = v.findViewById(R.id.image_view2);
+        file = v.findViewById(R.id.image_view3);
+        // crime=v.findViewById(R.id.image_view4);
+        card1 = v.findViewById(R.id.card1);
+        card2 = v.findViewById(R.id.card2);
+        card3 = v.findViewById(R.id.card3);
+        card4 = v.findViewById(R.id.card4);
+        card5 = v.findViewById(R.id.card5);
 
-
+        card5.setOnClickListener(v1 -> {
+            Intent i = new Intent(getContext(), Feedback.class);
+            i.putExtra("activity", "user");
+            startActivity(i);
+        });
         card1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i=new Intent(getContext(), recyc.class);
+                Intent i = new Intent(getContext(), recyc.class);
                 startActivity(i);
             }
         });
         card2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i=new Intent(getContext(), UserReport.class);
+                Intent i = new Intent(getContext(), UserReport.class);
                 startActivity(i);
             }
         });
@@ -113,19 +115,19 @@ public class user_Home_Page extends Fragment {
         card3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i=new Intent(getContext(), casefile.class);
+                Intent i = new Intent(getContext(), casefile.class);
                 startActivity(i);
             }
         });
 
 
-       /* card4.setOnClickListener(new View.OnClickListener() {
+        card4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i=new Intent(getContext(), crime.class);
+                Intent i = new Intent(getContext(), policedetails.class);
                 startActivity(i);
             }
-        });*/
+        });
         return v;
     }
 }

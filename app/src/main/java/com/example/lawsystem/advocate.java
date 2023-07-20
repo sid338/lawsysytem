@@ -25,6 +25,15 @@ public class advocate extends AppCompatActivity {
             Intent i = new Intent(this, AdvocateReport.class);
             startActivity(i);
         });
+        binding.card4.setOnClickListener(v -> {
+            Intent i = new Intent(this, policedetails.class);
+            startActivity(i);
+        });
+        binding.card5.setOnClickListener(v -> {
+            Intent i = new Intent(this, Feedback.class);
+            i.putExtra("activity","advocate");
+            startActivity(i);
+        });
     }
 
 }

@@ -4,34 +4,33 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".advocate"
-    android:orientation="vertical"
     android:background="@drawable/red"
-    >
-    <include layout="@layout/toolbar"/>
+    android:orientation="vertical"
+    tools:context=".advocate">
+
+    <include layout="@layout/toolbar" />
 
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-
-        app:cardBackgroundColor="#3D0000"
         android:layout_marginStart="10dp"
+
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="20dp"
-        >
+        app:cardBackgroundColor="#3D0000">
 
         <com.google.android.material.textview.MaterialTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Services"
-
-            android:padding="8dp"
-            android:textSize="16sp"
             android:layout_gravity="center|start"
+
             android:layout_marginStart="20dp"
+            android:padding="8dp"
+            android:text="Services"
             android:textColor="@color/white"
-            android:textStyle="bold"/>
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
     </com.google.android.material.card.MaterialCardView>
 
@@ -40,20 +39,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
         android:layout_gravity="center_horizontal"
-        >
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/top_view"
-            android:orientation="vertical"
-            android:padding="10dp"
             android:layout_gravity="center"
             android:background="#3D0000"
-            >
+            android:orientation="vertical"
+            android:padding="10dp">
 
 
             <LinearLayout
@@ -64,11 +61,10 @@
                 android:weightSum="3">
 
                 <androidx.cardview.widget.CardView
-                    android:layout_width="match_parent"
+                    android:id="@+id/card1"
+                    android:layout_width="250dp"
                     android:layout_height="70dp"
-                    android:layout_margin="12dp"
-                    android:layout_weight="1"
-                    android:id="@+id/card1">
+                    android:layout_weight="1">
 
                     <LinearLayout
                         android:id="@+id/userRequest"
@@ -86,57 +82,57 @@
                             android:src="@drawable/adv" />
 
                         <TextView
+                            android:id="@+id/usertxt"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_horizontal"
                             android:text="User Request"
                             android:textColor="@color/black"
                             android:textSize="13dp"
-                            android:textStyle="bold"
-                            android:id="@+id/usertxt"/>
+                            android:textStyle="bold" />
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
                 <!-- r1 c1 -->
 
+<!--                <androidx.cardview.widget.CardView-->
+<!--                    android:id="@+id/card2"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="70dp"-->
+<!--                    android:layout_margin="12dp"-->
+<!--                    android:layout_weight="1">-->
+
+<!--                    <LinearLayout-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="match_parent"-->
+<!--                        android:background="#C12D1570"-->
+<!--                        android:gravity="center"-->
+<!--                        android:orientation="vertical">-->
+
+<!--                        <ImageView-->
+<!--                            android:id="@+id/image_view2"-->
+<!--                            android:layout_width="30dp"-->
+<!--                            android:layout_height="30dp"-->
+<!--                            android:layout_gravity="center_horizontal"-->
+<!--                            android:src="@drawable/police" />-->
+
+<!--                        <TextView-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_gravity="center_horizontal"-->
+<!--                            android:text="Police"-->
+<!--                            android:textColor="@color/black"-->
+<!--                            android:textSize="13dp"-->
+<!--                            android:textStyle="bold" />-->
+<!--                    </LinearLayout>-->
+<!--                </androidx.cardview.widget.CardView>-->
+
                 <androidx.cardview.widget.CardView
-                    android:layout_width="match_parent"
+                    android:id="@+id/card3"
+                    android:layout_width="250dp"
                     android:layout_height="70dp"
                     android:layout_margin="12dp"
-                    android:layout_weight="1"
-                    android:id="@+id/card2">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="#C12D1570"
-                        android:gravity="center"
-                        android:orientation="vertical">
-
-                        <ImageView
-                            android:id="@+id/image_view2"
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:layout_gravity="center_horizontal"
-                            android:src="@drawable/police" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_horizontal"
-                            android:text="Police"
-                            android:textColor="@color/black"
-                            android:textSize="13dp"
-                            android:textStyle="bold"
-                            />
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
-                <androidx.cardview.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="70dp"
-                    android:layout_margin="12dp"
-                    android:layout_weight="1"
-                    android:id="@+id/card3">
+                    android:layout_weight="1">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -156,7 +152,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_horizontal"
-                            android:text="Case File"
+                            android:text="RECIEVED AMOUNT"
                             android:textColor="@color/black"
                             android:textSize="13dp"
                             android:textStyle="bold" />
@@ -169,114 +165,177 @@
             <!-- r2 c0 -->
 
 
+            <!--                     <androidx.cardview.widget.CardView
+                                     android:layout_width="match_parent"
+                                     android:layout_height="70dp"
+                                     android:layout_margin="12dp"
+                                     android:layout_weight="1"
+                                     android:id="@+id/card4">
 
-
-
-                <!--                     <androidx.cardview.widget.CardView
+                                     <LinearLayout
                                          android:layout_width="match_parent"
-                                         android:layout_height="70dp"
-                                         android:layout_margin="12dp"
-                                         android:layout_weight="1"
-                                         android:id="@+id/card4">
+                                         android:layout_height="match_parent"
+                                         android:background="#CE2A701E"
+                                         android:gravity="center"
+                                         android:orientation="vertical">
 
-                                         <LinearLayout
-                                             android:layout_width="match_parent"
-                                             android:layout_height="match_parent"
-                                             android:background="#CE2A701E"
-                                             android:gravity="center"
-                                             android:orientation="vertical">
+                                         <ImageView
+                                             android:id="@+id/image_view4"
+                                             android:layout_width="30dp"
+                                             android:layout_height="30dp"
+                                             android:layout_gravity="center_horizontal"
+                                             android:src="@drawable/crime1" />
 
-                                             <ImageView
-                                                 android:id="@+id/image_view4"
-                                                 android:layout_width="30dp"
-                                                 android:layout_height="30dp"
-                                                 android:layout_gravity="center_horizontal"
-                                                 android:src="@drawable/crime1" />
-
-                                             <TextView
-                                                 android:layout_width="wrap_content"
-                                                 android:layout_height="wrap_content"
-                                                 android:layout_gravity="center_horizontal"
-                                                 android:text="Report Crime"
-                                                 android:textColor="@color/black"
-                                                 android:gravity="center_horizontal"
-                                                 android:textSize="13dp"
-                                                 android:textStyle="bold" />
-                                         </LinearLayout>
-                                     </androidx.cardview.widget.CardView>
+                                         <TextView
+                                             android:layout_width="wrap_content"
+                                             android:layout_height="wrap_content"
+                                             android:layout_gravity="center_horizontal"
+                                             android:text="Report Crime"
+                                             android:textColor="@color/black"
+                                             android:gravity="center_horizontal"
+                                             android:textSize="13dp"
+                                             android:textStyle="bold" />
+                                     </LinearLayout>
+                                 </androidx.cardview.widget.CardView>
 
 
-                                     <androidx.cardview.widget.CardView
+                                 <androidx.cardview.widget.CardView
+                                     android:layout_width="match_parent"
+                                     android:layout_height="70dp"
+                                     android:layout_margin="12dp"
+                                     android:layout_weight="1"
+                                     android:id="@+id/card4">
+
+                                     <LinearLayout
                                          android:layout_width="match_parent"
-                                         android:layout_height="70dp"
-                                         android:layout_margin="12dp"
-                                         android:layout_weight="1"
-                                         android:id="@+id/card4">
+                                         android:layout_height="match_parent"
+                                         android:background="#CE2A701E"
+                                         android:gravity="center"
+                                         android:orientation="vertical">
 
-                                         <LinearLayout
-                                             android:layout_width="match_parent"
-                                             android:layout_height="match_parent"
-                                             android:background="#CE2A701E"
-                                             android:gravity="center"
-                                             android:orientation="vertical">
+                                         <ImageView
+                                             android:id="@+id/image_view4"
+                                             android:layout_width="30dp"
+                                             android:layout_height="30dp"
+                                             android:layout_gravity="center_horizontal"
+                                             android:src="@drawable/crime1" />
 
-                                             <ImageView
-                                                 android:id="@+id/image_view4"
-                                                 android:layout_width="30dp"
-                                                 android:layout_height="30dp"
-                                                 android:layout_gravity="center_horizontal"
-                                                 android:src="@drawable/crime1" />
-
-                                             <TextView
-                                                 android:layout_width="wrap_content"
-                                                 android:layout_height="wrap_content"
-                                                 android:layout_gravity="center_horizontal"
-                                                 android:text="Report Crime"
-                                                 android:textColor="@color/black"
-                                                 android:gravity="center_horizontal"
-                                                 android:textSize="13dp"
-                                                 android:textStyle="bold" />
-                                         </LinearLayout>
-                                     </androidx.cardview.widget.CardView>
+                                         <TextView
+                                             android:layout_width="wrap_content"
+                                             android:layout_height="wrap_content"
+                                             android:layout_gravity="center_horizontal"
+                                             android:text="Report Crime"
+                                             android:textColor="@color/black"
+                                             android:gravity="center_horizontal"
+                                             android:textSize="13dp"
+                                             android:textStyle="bold" />
+                                     </LinearLayout>
+                                 </androidx.cardview.widget.CardView>
 
 
-                                     <androidx.cardview.widget.CardView
+                                 <androidx.cardview.widget.CardView
+                                     android:layout_width="match_parent"
+                                     android:layout_height="70dp"
+                                     android:layout_margin="12dp"
+                                     android:layout_weight="1"
+                                     android:id="@+id/card4">
+
+                                     <LinearLayout
                                          android:layout_width="match_parent"
-                                         android:layout_height="70dp"
-                                         android:layout_margin="12dp"
-                                         android:layout_weight="1"
-                                         android:id="@+id/card4">
+                                         android:layout_height="match_parent"
+                                         android:background="#CE2A701E"
+                                         android:gravity="center"
+                                         android:orientation="vertical">
 
-                                         <LinearLayout
-                                             android:layout_width="match_parent"
-                                             android:layout_height="match_parent"
-                                             android:background="#CE2A701E"
-                                             android:gravity="center"
-                                             android:orientation="vertical">
+                                         <ImageView
+                                             android:id="@+id/image_view4"
+                                             android:layout_width="30dp"
+                                             android:layout_height="30dp"
+                                             android:layout_gravity="center_horizontal"
+                                             android:src="@drawable/crime1" />
 
-                                             <ImageView
-                                                 android:id="@+id/image_view4"
-                                                 android:layout_width="30dp"
-                                                 android:layout_height="30dp"
-                                                 android:layout_gravity="center_horizontal"
-                                                 android:src="@drawable/crime1" />
+                                         <TextView
+                                             android:layout_width="wrap_content"
+                                             android:layout_height="wrap_content"
+                                             android:layout_gravity="center_horizontal"
+                                             android:text="Report Crime"
+                                             android:textColor="@color/black"
+                                             android:gravity="center_horizontal"
+                                             android:textSize="13dp"
+                                             android:textStyle="bold" />
+                                     </LinearLayout>
+                                 </androidx.cardview.widget.CardView>-->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card4"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_margin="12dp"
+                android:layout_weight="1">
 
-                                             <TextView
-                                                 android:layout_width="wrap_content"
-                                                 android:layout_height="wrap_content"
-                                                 android:layout_gravity="center_horizontal"
-                                                 android:text="Report Crime"
-                                                 android:textColor="@color/black"
-                                                 android:gravity="center_horizontal"
-                                                 android:textSize="13dp"
-                                                 android:textStyle="bold" />
-                                         </LinearLayout>
-                                     </androidx.cardview.widget.CardView>-->
+                <LinearLayout
+                    android:id="@+id/llpolice"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#BAFFD740"
+                    android:gravity="center"
+                    android:orientation="vertical">
 
+                    <ImageView
+                        android:id="@+id/image_view4"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center_horizontal"
+                        android:src="@drawable/police" />
+
+                    <TextView
+                        android:id="@+id/police"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:text="Police"
+                        android:textColor="@color/black"
+                        android:textSize="13dp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card5"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_margin="12dp"
+                android:layout_weight="1">
+
+                <LinearLayout
+
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#BAFFD740"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/image_view5"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center_horizontal"
+                        android:src="@drawable/feedback" />
+
+                    <TextView
+                        android:id="@+id/feedback"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:text="Feedback"
+                        android:textColor="@color/black"
+                        android:textSize="13dp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
         </LinearLayout>
 
     </com.google.android.material.card.MaterialCardView>
-
 
 
 </LinearLayout>

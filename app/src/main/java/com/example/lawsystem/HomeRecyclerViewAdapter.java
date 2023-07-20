@@ -75,7 +75,7 @@ class HomeRecyclerViewAdapter extends RecyclerView.Adapter<HomeRecyclerViewAdapt
        //     textViewexperiance = itemView.findViewById(R.id.advexp);
        //     textViewRating = itemView.findViewById(R.id.advrating);
         //    textViewfee = itemView.findViewById(R.id.advfee);
-            imageView = itemView.findViewById(R.id.imageView);
+         //   imageView = itemView.findViewById(R.id.imageView);
         }
     }
 }
